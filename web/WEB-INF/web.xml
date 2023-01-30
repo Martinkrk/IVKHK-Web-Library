@@ -11,7 +11,10 @@
             <url-pattern>/index.jsp</url-pattern>
             <url-pattern>/WEB-INF/createAuthor.jsp</url-pattern>
             <url-pattern>/WEB-INF/createBook.jsp</url-pattern>
-            <url-pattern>/WEB-INF/books</url-pattern>
+            <url-pattern>/WEB-INF/books.jsp</url-pattern>
+            <url-pattern>/WEB-INF/readers.jsp</url-pattern>
+            <url-pattern>/WEB-INF/createReader.jsp</url-pattern>
+            <url-pattern>/WEB-INF/lendBook.jsp</url-pattern>
             <page-encoding>UTF-8</page-encoding>
             <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>

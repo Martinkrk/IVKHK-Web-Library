@@ -2,8 +2,8 @@ package servlets;
 
 import entity.Author;
 import entity.Book;
+
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -12,18 +12,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.core.Response;
+
 import session.AuthorFacade;
 import session.BookFacade;
 
 @WebServlet(name = "BookServlet", urlPatterns = {
-    "/BookServlet", "/addBook", "/addAuthor", "/books", "/createBook", "/createAuthor"
+    "/BookServlet", "/addBook", "/addAuthor", "/books", "/createBook",
+    "/createAuthor"
 })
 public class BookServlet extends HttpServlet {
     
     @EJB private AuthorFacade authorFacade;
     @EJB private BookFacade bookFacade;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,6 +41,7 @@ public class BookServlet extends HttpServlet {
         String path = request.getServletPath();
         switch (path) {
             case "/addBook":
+                request.setAttribute("authors", authorFacade.findAll());
                 request.getRequestDispatcher("WEB-INF/createBook.jsp").forward(request, response);
                 break;
             case "/createBook":
@@ -60,6 +61,8 @@ public class BookServlet extends HttpServlet {
                 }
                 bookFacade.create(book);
                 request.setAttribute("bookList", bookFacade.findAll());
+                request.setAttribute("success", "Book has been successfully created!");
+                request.getRequestDispatcher("WEB-INF/createBook.jsp").forward(request, response);
                 break;
             case "/addAuthor":
                 request.getRequestDispatcher("WEB-INF/createAuthor.jsp").forward(request, response);
@@ -75,6 +78,7 @@ public class BookServlet extends HttpServlet {
                 request.getRequestDispatcher("WEB-INF/createAuthor.jsp").forward(request, response);
                 break;
             case "/books":
+                request.setAttribute("books", bookFacade.findAll());
                 request.getRequestDispatcher("WEB-INF/books.jsp").forward(request, response);
                 break;
             case "/BookServlet":

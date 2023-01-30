@@ -1,7 +1,49 @@
-body {
-    background-color: gray;
+#navbar {
+  background-color: #333;
+  overflow: hidden;
 }
 
-h1 {
-    color: red;
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar li {
+  float: left;
+}
+
+#navbar a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  background-color: #111;
+}
+
+.grid-container {
+    width: 20%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.grid-item {
+  background-color: #333;
+  border: 1px solid black;
+  font-size: 20px;
+  text-align: center;
 }

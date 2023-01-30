@@ -14,7 +14,7 @@
             <br>
             <label for="authors">Authors</label>
             <select type="text" id="authors" name="authors" multiple="true">
-                <c:forEach var="author" items="${authorsList}">
+                <c:forEach var="author" items="${authors}">
                     <option value="${author.id}" name="">
                         ${author.firstname} ${author.lastname}
                     </option>
